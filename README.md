@@ -1,6 +1,13 @@
 # SiteWeb
 Le site web du labo sécurité
 
+## Features
+* news
+* presentation des membres
+* contact offre pentest
+* challenge/inscription
+* *informations utiles*
+
 # Licence
 
 ```text
