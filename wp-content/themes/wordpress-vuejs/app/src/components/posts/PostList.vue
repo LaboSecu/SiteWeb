@@ -1,6 +1,6 @@
 <template>
   <div class="post-list">
-    <h1>Posts</h1>
+    <h1>News</h1>
     <div v-for="post in posts" :key="post.id">
       <img v-bind:src="image(post, 'medium')" alt="">
       <h2><router-link :to="{ name: 'Post', params: { slug: post.slug } }">{{ post.title.rendered }}</router-link></h2>
