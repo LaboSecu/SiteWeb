@@ -41,4 +41,5 @@ export default {
 </script>
 
 <style lang="less">
+@import "../node_modules/uikit/dist/css/uikit.min.css";
 </style>
