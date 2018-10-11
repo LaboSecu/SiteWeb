@@ -1,35 +1,33 @@
 <template>
-  <div class="post">
-    <div v-if="post">
+  <div class="post-list">
+    <h1>Blog</h1>
+    <div v-for="post in posts" :key="post.id">
       <img v-bind:src="image(post, 'medium')" alt="">
-      <h1>{{ post.title.rendered }}</h1>
-      <div v-html="post.content.rendered"></div>
+      <h2><router-link :to="{ name: 'Blog', params: { slug: post.slug } }">{{ post.title.rendered }}</router-link></h2>
     </div>
   </div>
 </template>
 
 <script>
-import router from '@/router'
 import transitions from '@/transitions'
 import { getFeaturedImageFromPost as image } from '@/helpers'
 export default {
-  name: 'Custom',
+  name: 'PostList',
   data () {
     return {
-      post: null
+      posts: []
     }
   },
   created () {
-    this.getPost().then(() => {
-      if (!this.post) router.push({ name: 'Home' })
+    this.getPosts().then(() => {
       transitions.in()
     })
   },
   beforeRouteLeave: transitions.out,
   methods: {
-    getPost: async function () {
-      this.post = await this.$store.getters.getPost(this.$route.params.slug, {
-        postType: 'customs',
+    getPosts: async function () {
+      this.posts = await this.$store.getters.getPosts({
+        postType: 'blog',
         embed: true
       })
     },

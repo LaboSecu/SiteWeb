@@ -4,6 +4,8 @@ import Home from '@/components/pages/Home'
 import Page from '@/components/pages/Page'
 import PostList from '@/components/posts/PostList'
 import Post from '@/components/posts/Post'
+import BlogList from '@/components/blog/BlogList'
+import Blog from '@/components/blog/Blog'
 
 Vue.use(Router)
 
@@ -24,6 +26,16 @@ export default new Router({
       path: '/posts/:slug',
       name: 'Post',
       component: Post
+    },
+    {
+      path: '/blog',
+      name: 'BlogList',
+      component: BlogList
+    },
+    {
+      path: '/blog/:slug',
+      name: 'Blog',
+      component: Blog
     },
     {
       path: '/:slug',
