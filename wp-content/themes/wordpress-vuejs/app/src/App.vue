@@ -29,4 +29,7 @@ export default {
 
 <style lang="less">
 @import "../node_modules/uikit/dist/css/uikit.min.css";
+body {
+  padding-top: 70px;
+}
 </style>

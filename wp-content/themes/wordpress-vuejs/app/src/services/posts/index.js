@@ -22,7 +22,20 @@ export default {
     const body = helpers.createBody(config.body)
     let response = await fetch(`${apiBaseUrl}${config.postType}?${body}`)
     let data = await response.json()
-    return response.ok ? data : []
+    if (response.ok && data) {
+      if (config.customfields) {
+        data.map(async (d) => {
+          let meta = await customfields.get(d.id)
+          d.meta = meta
+          return d
+        })
+        return data
+      } else {
+        return data
+      }
+    } else {
+      return []
+    }
   },
 
   async get (id, config = {}) {
