@@ -1,9 +1,10 @@
 <template>
   <div class="post-list">
-    <h1>Blog</h1>
-    <div v-for="post in posts" :key="post.id">
-      <img v-bind:src="image(post, 'medium')" alt="">
-      <h2><router-link :to="{ name: 'Blog', params: { slug: post.slug } }">{{ post.title.rendered }}</router-link></h2>
+    <div class="uk-container">
+      <h1>Blog</h1>
+      <div class="post-container uk-child-width-1-1@s uk-child-width-1-2@m" uk-grid>
+        <BlogTease v-for="post in posts" :key="post.id" v-if="post.meta" :blog="post" />
+      </div>
     </div>
   </div>
 </template>
@@ -11,8 +12,12 @@
 <script>
 import transitions from '@/transitions'
 import { getFeaturedImageFromPost as image } from '@/helpers'
+import BlogTease from '@/components/blogs/BlogTease'
 export default {
   name: 'PostList',
+  components: {
+    BlogTease
+  },
   data () {
     return {
       posts: []

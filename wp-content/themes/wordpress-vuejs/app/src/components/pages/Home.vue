@@ -17,22 +17,20 @@
         </div>
       </div>
       <div class="blogs" v-if="blogs">
-        <div class="uk-container">
-          <div class="blogs-container uk-child-width-1-1@s uk-child-width-1-3@m" uk-grid>
-            <div v-for="blog in blogs" :key="blog.id" v-if="blog.meta">
-              <h2>{{ blog.title.rendered }}</h2>
-              <img v-bind:src="image(blog, 'large')">
+        <div class="blogs-container uk-container">
+          <div class="blogs-slider" uk-slider>
+            <div class="uk-slider-items uk-child-width-1-1@s uk-child-width-1-3@m uk-grid">
+              <BlogTease v-for="blog in blogs" :key="blog.id" v-if="blog.meta" :blog="blog" />
             </div>
           </div>
           <router-link :to="{ name: 'BlogList' }">Blog</router-link>
         </div>
       </div>
       <div class="news" v-if="news">
-        <div class="uk-container">
-          <div class="news-container uk-child-width-1-1@s uk-child-width-1-3@m" uk-grid>
-            <div v-for="n in news" :key="n.id" v-if="n.meta">
-              <h2>{{ n.title.rendered }}</h2>
-              <img v-bind:src="image(n, 'large')">
+        <div class="news-container uk-container">
+          <div class="news-slider" uk-slider>
+            <div class="uk-slider-items uk-child-width-1-1@s uk-child-width-1-3@m uk-grid">
+              <PostTease v-for="n in news" :key="n.id" v-if="n.meta" :post="n" />
             </div>
           </div>
           <router-link :to="{ name: 'PostList' }">News</router-link>
@@ -46,8 +44,14 @@
 import transitions from '@/transitions'
 import moment from 'moment'
 import { getFeaturedImageFromPost as image } from '@/helpers'
+import BlogTease from '@/components/blogs/BlogTease'
+import PostTease from '@/components/posts/PostTease'
 export default {
   name: 'Home',
+  components: {
+    BlogTease,
+    PostTease
+  },
   data () {
     return {
       page: null,

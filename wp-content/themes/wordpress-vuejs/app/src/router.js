@@ -4,8 +4,8 @@ import Home from '@/components/pages/Home'
 import Page from '@/components/pages/Page'
 import PostList from '@/components/posts/PostList'
 import Post from '@/components/posts/Post'
-import BlogList from '@/components/blog/BlogList'
-import Blog from '@/components/blog/Blog'
+import BlogList from '@/components/blogs/BlogList'
+import Blog from '@/components/blogs/Blog'
 
 Vue.use(Router)
 
