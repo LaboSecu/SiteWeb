@@ -9,6 +9,7 @@
 <script>
 import Header from '@/components/layout/Header.vue'
 import PageTransitions from '@/components/layout/PageTransitions.vue'
+require('uikit')
 export default {
   name: 'App',
   components: {
