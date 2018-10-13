@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
     <router-view/>
-    <PageTransitions name="fade" />
+    <PageTransitions name="rows" :options="{ color: '#242424', number: 3 }"/>
   </div>
 </template>
 
@@ -15,15 +15,6 @@ export default {
   components: {
     Header,
     PageTransitions
-  },
-  data () {
-    return {
-      transitionContainer: undefined,
-      loading: true
-    }
-  },
-  mounted () {
-    this.transitionContainer = document.getElementById('transition')
   }
 }
 </script>
