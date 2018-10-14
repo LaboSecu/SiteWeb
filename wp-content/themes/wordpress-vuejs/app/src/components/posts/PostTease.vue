@@ -1,7 +1,13 @@
 <template>
   <div class="post-tease">
-    <h2><router-link :to="{ name: 'Post', params: { slug: post.slug } }">{{ post.title.rendered }}</router-link></h2>
-    <img v-bind:src="image(post, 'large')">
+    <div class="post-tease-container">
+      <div class="post-tease-image" :style="{ backgroundImage: `url(${image(post, 'full')})` }"></div>
+      <div class="post-tease-overlay"></div>
+      <div class="post-tease-content">
+        <h2>{{ post.title.rendered }}</h2>
+      </div>
+      <router-link :to="{ name: 'Post', params: { slug: post.slug } }" class="post-tease-link"></router-link>
+    </div>
   </div>
 </template>
 
@@ -24,4 +30,77 @@ export default {
 </script>
 
 <style scoped lang="less">
+.post-tease {
+
+  .post-tease-container {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-top: 100%;
+
+    .post-tease-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .post-tease-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #000;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .post-tease-content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px;
+
+      h2 {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 40px;
+        color: #fff;
+        text-rendering: optimizeLegibility;
+        filter: blur(2px);
+        transition: filter 0.3s ease-in-out;
+      }
+    }
+
+    .post-tease-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    &:hover {
+
+      .post-tease-overlay {
+        opacity: 0.3;
+      }
+
+      .post-tease-content {
+
+        h2 {
+          filter: blur(0px);
+        }
+      }
+    }
+  }
+}
 </style>

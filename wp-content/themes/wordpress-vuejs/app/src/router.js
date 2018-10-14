@@ -18,12 +18,12 @@ export default new Router({
       component: Home
     },
     {
-      path: '/posts',
+      path: '/articles',
       name: 'PostList',
       component: PostList
     },
     {
-      path: '/posts/:slug',
+      path: '/article/:slug',
       name: 'Post',
       component: Post
     },
