@@ -30,7 +30,7 @@
           </div>
         </div>
       </div>
-      <div class="blogs" v-if="blogs">
+      <!-- <div class="blogs" v-if="blogs">
         <div class="blogs-container uk-container">
           <div class="blogs-slider" uk-slider uk-scrollspy="target: .post-tease; cls: uk-animation-fade; delay: 100">
             <div class="uk-slider-items uk-child-width-1-1@s uk-child-width-1-3@m uk-grid">
@@ -41,7 +41,7 @@
             <router-link :to="{ name: 'BlogList' }" class="btn">Voir le blog</router-link>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
