@@ -92,6 +92,10 @@ export default {
       &.hidden {
         filter: blur(5px);
       }
+
+      @media screen and (max-width: 768px) {
+        font-size: 50px;
+      }
     }
   }
 }
@@ -101,9 +105,5 @@ export default {
   // margin: 0 auto;
   padding: 75px 0 60px;
   font-weight: 300;
-
-  a:not(.btn) {
-    text-decoration: underline;
-  }
 }
 </style>

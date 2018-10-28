@@ -37,6 +37,9 @@ a {
     text-decoration: none;
   }
 }
+a:not(.btn) {
+  text-decoration: underline;
+}
 
 .btn {
   z-index: 1;

@@ -57,6 +57,10 @@ export default {
       background-color: #000;
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
+
+      @media screen and (max-width: 768px) {
+        opacity: 0.3;
+      }
     }
 
     .post-tease-content {
@@ -74,9 +78,14 @@ export default {
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 40px;
         color: #fff;
+        text-align: center;
         text-rendering: optimizeLegibility;
         filter: blur(2px);
         transition: filter 0.3s ease-in-out;
+
+        @media screen and (max-width: 768px) {
+          filter: blur(0px);
+        }
       }
     }
 

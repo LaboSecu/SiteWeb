@@ -46,8 +46,12 @@ footer {
       margin-bottom: 10px;
     }
 
-    .link:hover {
-      color: #ddd;
+    .link {
+      text-decoration: none;
+
+      &:hover {
+        color: #ddd;
+      }
     }
   }
 }

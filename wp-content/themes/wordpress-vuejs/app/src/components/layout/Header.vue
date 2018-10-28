@@ -77,6 +77,7 @@ header {
         a {
           font-family: 'Roboto Condensed', sans-serif;
           color: #ccc;
+          text-decoration: none;
           transition: color 0.3s ease-in-out;
 
           &:hover, &.router-link-active {
